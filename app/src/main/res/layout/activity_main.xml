@@ -31,6 +31,7 @@
         />
 
     <EditText
+        android:id="@+id/Username_Field"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Username or gmail"
@@ -49,6 +50,7 @@
         />
 
     <EditText
+        android:id="@+id/Password_Field"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Password"
@@ -69,6 +71,7 @@
         >
 
         <TextView
+            android:id="@+id/Forgotten_Password"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -80,6 +83,7 @@
 
 
         <Button
+            android:id="@+id/Log_In"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -91,6 +95,7 @@
     </LinearLayout>
 
     <TextView
+        android:id="@+id/Create_New_Account"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Create New Account"
