@@ -30,11 +30,11 @@ public class Sign_up extends AppCompatActivity {
             public void onClick(View view) {
 
                 String name = name_box.getText().toString();
-                Toast.makeText(getApplicationContext(),name,Toast.LENGTH_LONG).show();//kon page,kon data,koto time dekhabo
+                Toast.makeText(getApplicationContext(),name,Toast.LENGTH_SHORT).show();//kon page,kon data,koto time dekhabo
 
 
                 String add = address_box.getText().toString();
-                Toast.makeText(getApplicationContext(),add,Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(),add,Toast.LENGTH_SHORT).show();
 
                // String age = age_box.getText().toString();
                // Toast.makeText(getApplicationContext(),name,Toast.LENGTH_LONG).show();
