@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Sign_up"
+    android:orientation="vertical"
+    android:padding="20dp"
+    >
+
+    <TextView
+        android:id="@+id/T_sign_up"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sign Up"
+        android:textSize="50sp"
+        android:layout_marginBottom="50sp"
+        android:textColor="#FF5722"
+
+        />
+
+    <EditText
+        android:id="@+id/Name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Name"
+        android:textSize="30sp"
+        android:layout_marginBottom="15sp"
+        android:inputType="text"
+
+
+        />
+
+    <EditText
+        android:id="@+id/Email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Email"
+        android:textSize="30sp"
+        android:layout_marginBottom="15sp"
+        android:inputType="textEmailAddress"
+
+
+        />
+
+    <EditText
+        android:id="@+id/Age"
+        android:layout_width="250sp"
+        android:layout_height="wrap_content"
+        android:hint="Age"
+        android:textSize="30sp"
+        android:layout_marginBottom="15sp"
+        android:inputType="number"
+
+
+        />
+
+
+    <EditText
+        android:id="@+id/Contact"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Contact"
+        android:textSize="30sp"
+        android:layout_marginBottom="15sp"
+        android:inputType="number"
+
+
+
+        />
+    <EditText
+        android:id="@+id/Address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Address"
+        android:textSize="30sp"
+        android:layout_marginBottom="25sp"
+        android:inputType="text"
+
+
+        />
+    <Button
+        android:id="@+id/btn_Sign_up"
+        android:layout_width="120sp"
+        android:layout_height="60sp"
+        android:text="Sign Up"
+        android:textSize="15sp"
+        android:layout_gravity="end"
+        android:layout_marginTop="30sp"
+
+        />
+
+
+
+</LinearLayout>
