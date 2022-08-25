@@ -8,10 +8,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ExpandableListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class Sign_up extends AppCompatActivity {
-    EditText name_box,email_box,age_box,contact_box,address_box,Already_Have_Account;
+    EditText name_box,email_box,age_box,contact_box,address_box;
+    TextView Already_Have_Account;
     Button signup;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,17 +49,19 @@ public class Sign_up extends AppCompatActivity {
         });
 
 
-/*        Already_Have_Account.setOnClickListener(new View.OnClickListener() {
+        Already_Have_Account.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 loginActivity();
             }
 
-            private void loginActivity() {
-                Intent intent=new Intent(this, MainActivity.class);
-                startActivity(intent);
-            }
-        });*/
 
+        });
+
+    }
+
+    public void loginActivity() {
+        Intent intent=new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
 }
