@@ -2,6 +2,7 @@ package com.example.android_project;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -10,7 +11,7 @@ import android.widget.ExpandableListView;
 import android.widget.Toast;
 
 public class Sign_up extends AppCompatActivity {
-    EditText name_box,email_box,age_box,contact_box,address_box;
+    EditText name_box,email_box,age_box,contact_box,address_box,Already_Have_Account;
     Button signup;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +23,7 @@ public class Sign_up extends AppCompatActivity {
         age_box=findViewById(R.id.Age);
         contact_box=findViewById(R.id.Contact);
         address_box=findViewById(R.id.Address);
+        Already_Have_Account=findViewById(R.id.AHA);
 
         signup=findViewById(R.id.btn_Sign_up);
 
@@ -39,8 +41,23 @@ public class Sign_up extends AppCompatActivity {
                // String age = age_box.getText().toString();
                // Toast.makeText(getApplicationContext(),name,Toast.LENGTH_LONG).show();
 
+
+
             }
         });
+
+
+/*        Already_Have_Account.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                loginActivity();
+            }
+
+            private void loginActivity() {
+                Intent intent=new Intent(this, MainActivity.class);
+                startActivity(intent);
+            }
+        });*/
 
     }
 }
