@@ -8,6 +8,7 @@
     tools:context=".MainActivity"
     android:orientation="vertical"
     android:padding="20dp"
+    android:background="#FFEB3B"
 
 
     >
