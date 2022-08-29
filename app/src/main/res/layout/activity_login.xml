@@ -25,7 +25,7 @@
         />
 
     <EditText
-        android:id="@+id/Name"
+        android:id="@+id/ET_username"
         android:layout_width="match_parent"
         android:layout_height="50sp"
         android:hint="Username or Email"
@@ -33,14 +33,14 @@
         android:paddingStart="20dp"
         android:textSize="30sp"
         android:layout_marginBottom="20sp"
-        android:inputType="text"
+        android:inputType="textEmailAddress"
         android:background="@drawable/edit_background"
 
 
         />
 
     <EditText
-        android:id="@+id/Email"
+        android:id="@+id/ET_password"
         android:layout_width="match_parent"
         android:layout_height="50sp"
         android:hint="Password"
@@ -48,14 +48,14 @@
         android:paddingStart="20dp"
         android:textSize="30sp"
         android:layout_marginBottom="20sp"
-        android:inputType="text"
+        android:inputType="textPassword"
         android:background="@drawable/edit_background"
 
 
         />
 
     <Button
-        android:id="@+id/Forgotten_Password"
+        android:id="@+id/btn_Forgotten_Password"
         android:layout_width="match_parent"
         android:layout_height="50sp"
         android:text="Forgotten Password?"
@@ -81,7 +81,7 @@
 
 
     <Button
-        android:id="@+id/AHA"
+        android:id="@+id/btn_Create_New_Account"
         android:layout_width="match_parent"
         android:layout_height="50sp"
         android:text="@string/cna"
