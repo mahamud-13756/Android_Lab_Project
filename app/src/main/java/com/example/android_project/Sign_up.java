@@ -15,6 +15,8 @@ public class Sign_up extends AppCompatActivity {
     EditText name_box,email_box,age_box,contact_box,address_box;
     TextView Already_Have_Account;
     Button signup;
+    private String Name;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,12 +35,14 @@ public class Sign_up extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                String name = name_box.getText().toString();
-                Toast.makeText(getApplicationContext(),name,Toast.LENGTH_SHORT).show();//kon page,kon data,koto time dekhabo
+                Name = name_box.getText().toString();
+                Toast.makeText(getApplicationContext(),Name,Toast.LENGTH_SHORT).show();//kon page,kon data,koto time dekhabo
 
 
-                String add = address_box.getText().toString();
-                Toast.makeText(getApplicationContext(),add,Toast.LENGTH_SHORT).show();
+                openHomePage();
+
+                /*String add = address_box.getText().toString();
+                Toast.makeText(getApplicationContext(),add,Toast.LENGTH_SHORT).show();*/
 
                // String age = age_box.getText().toString();
                // Toast.makeText(getApplicationContext(),name,Toast.LENGTH_LONG).show();
@@ -64,4 +68,14 @@ public class Sign_up extends AppCompatActivity {
         Intent intent=new Intent(this, Login.class);
         startActivity(intent);
     }
+
+
+    public void openHomePage(){
+
+        Intent i = new Intent(this, Home_Page.class);
+        i.putExtra("Name",Name);
+        startActivity(i);
+    }
+
+
 }
