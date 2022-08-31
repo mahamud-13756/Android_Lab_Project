@@ -2,13 +2,21 @@ package com.example.android_project;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+
+import java.util.Objects;
 
 public class Login extends AppCompatActivity {
     Button btn_cna, btn_fp, login;
+    String uname,pass,u="mahamud", p="123456";
+    EditText uname_box,pass_box;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -16,6 +24,9 @@ public class Login extends AppCompatActivity {
 
         btn_cna = findViewById(R.id.btn_Create_New_Account);
         btn_fp = findViewById(R.id.btn_Forgotten_Password);
+
+        uname_box= findViewById(R.id.ET_username);
+        pass_box=findViewById(R.id.ET_password);
 
         login=findViewById(R.id.btn_Sign_in);
 
@@ -37,7 +48,15 @@ public class Login extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                openHomePage1();
+                uname=uname_box.getText().toString();
+                pass=pass_box.getText().toString();
+
+                if(Objects.equals(u, uname) && Objects.equals(p, pass)){
+                    openHomePage1();
+                }
+
+
+
             }
         });
 
@@ -59,6 +78,9 @@ public class Login extends AppCompatActivity {
 
 
     public void openHomePage1(){
+
+
+
         Intent intent=new Intent(this, Home_Page.class);
         startActivity(intent);
     }

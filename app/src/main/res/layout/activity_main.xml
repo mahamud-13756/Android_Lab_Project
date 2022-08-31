@@ -42,7 +42,7 @@
 
 
     <EditText
-        android:id="@+id/ET_password"
+        android:id="@+id/ET_password1"
         android:layout_width="match_parent"
         android:layout_height="50sp"
         android:hint="New Password"
@@ -57,7 +57,7 @@
 
 
     <EditText
-        android:id="@+id/ET_C_password"
+        android:id="@+id/ET_C_password1"
         android:layout_width="match_parent"
         android:layout_height="50sp"
         android:hint="Confirm New Password"
