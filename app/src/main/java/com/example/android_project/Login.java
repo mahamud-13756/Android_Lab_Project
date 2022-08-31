@@ -8,12 +8,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import java.util.Objects;
 
 public class Login extends AppCompatActivity {
     Button btn_cna, btn_fp, login;
-    String uname,pass,u="mahamud", p="123456";
+    String uname,pass,u="mahamud", p="123456", t="Does not Match data";
     EditText uname_box,pass_box;
 
 
@@ -54,6 +55,10 @@ public class Login extends AppCompatActivity {
                 if(Objects.equals(u, uname) && Objects.equals(p, pass)){
                     openHomePage1();
                 }
+                else{
+                    Toast.makeText(getApplicationContext(),t,Toast.LENGTH_SHORT).show();//kon page,kon data,koto time dekhabo
+
+                }
 
 
 
@@ -82,6 +87,7 @@ public class Login extends AppCompatActivity {
 
 
         Intent intent=new Intent(this, Home_Page.class);
+        intent.putExtra("Name",u);
         startActivity(intent);
     }
 
