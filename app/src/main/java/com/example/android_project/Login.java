@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 public class Login extends AppCompatActivity {
-    Button btn_cna, btn_fp;
+    Button btn_cna, btn_fp, login;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -16,6 +16,8 @@ public class Login extends AppCompatActivity {
 
         btn_cna = findViewById(R.id.btn_Create_New_Account);
         btn_fp = findViewById(R.id.btn_Forgotten_Password);
+
+        login=findViewById(R.id.btn_Sign_in);
 
         btn_cna.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -32,6 +34,14 @@ public class Login extends AppCompatActivity {
         });
 
 
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openHomePage1();
+            }
+        });
+
+
 
     }
 
@@ -44,6 +54,12 @@ public class Login extends AppCompatActivity {
 
     public void openForgetPage(){
         Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+
+
+    public void openHomePage1(){
+        Intent intent=new Intent(this, Home_Page.class);
         startActivity(intent);
     }
 
