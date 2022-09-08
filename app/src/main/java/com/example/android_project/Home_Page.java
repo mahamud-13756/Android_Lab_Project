@@ -15,7 +15,7 @@ public class Home_Page extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
 
-        tvfield=findViewById(R.id.TV);
+        tvfield=findViewById(R.id.TV_name);
 
         // rcv data from signuppage
 
