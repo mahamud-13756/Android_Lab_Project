@@ -14,7 +14,7 @@ import java.util.Objects;
 
 public class Login extends AppCompatActivity {
     Button btn_cna, btn_fp, login;
-    String uname,pass,u="mahamud", p="123456", t="Does not Match data";
+    String uname,pass,u="mahamud",n="Md. Mahamud", p="123456", t="Does not Match data",ag="23",con="01627395446", ad="Dhaka, BD";
     EditText uname_box,pass_box;
 
 
@@ -87,7 +87,10 @@ public class Login extends AppCompatActivity {
 
 
         Intent intent=new Intent(this, Home_Page.class);
-        intent.putExtra("Name",u);
+        intent.putExtra("Name",n);
+        intent.putExtra("Age",ag);
+        intent.putExtra("Contact",con);
+        intent.putExtra("Address",ad);
         startActivity(intent);
     }
 
