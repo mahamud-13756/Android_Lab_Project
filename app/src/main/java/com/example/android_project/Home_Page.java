@@ -1,27 +1,39 @@
 package com.example.android_project;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 
-import java.util.jar.Attributes;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class Home_Page extends AppCompatActivity {
-    TextView tvfield;
+    TextView tvname,tvage,tvcontact,tvaddress;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
 
-        tvfield=findViewById(R.id.TV_name);
+        tvname=findViewById(R.id.TV_name);
+        tvage=findViewById(R.id.TV_age);
+        tvcontact=findViewById(R.id.TV_contact);
+        tvaddress=findViewById(R.id.TV_address);
 
         // rcv data from signuppage
 
-        Intent i = getIntent();
-        String name=i.getStringExtra("Name");
+        Intent iname = getIntent();
+        String name=iname.getStringExtra("Name");
+        tvname.setText(name);
 
-        tvfield.setText(name);
+        Intent iage = getIntent();
+        String age=iage.getStringExtra("Age");
+        tvage.setText(age);
+
+        Intent icontact = getIntent();
+        String contact=icontact.getStringExtra("Contact");
+        tvcontact.setText(contact);
+
+        Intent iaddress = getIntent();
+        String address=iaddress.getStringExtra("Address");
+        tvaddress.setText(address);
     }
 }
