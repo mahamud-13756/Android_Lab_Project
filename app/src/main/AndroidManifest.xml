@@ -14,6 +14,9 @@
         android:theme="@style/Theme.Android_Project"
         tools:targetApi="31">
         <activity
+            android:name=".Calculator"
+            android:exported="false" />
+        <activity
             android:name=".Home_Page"
             android:exported="false" />
         <activity
@@ -27,10 +30,10 @@
         </activity>
         <activity
             android:name=".Sign_up"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".MainActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
     </application>
 
 </manifest>
