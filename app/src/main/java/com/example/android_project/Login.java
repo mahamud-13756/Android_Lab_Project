@@ -13,7 +13,7 @@ import android.widget.Toast;
 import java.util.Objects;
 
 public class Login extends AppCompatActivity {
-    Button btn_cna, btn_fp, login;
+    Button btn_cna, btn_fp, login, b_calculator;
     String uname,pass,u="mahamud",n="Md. Mahamud", p="123456", t="Does not Match data",ag="23",con="01627395446", ad="Dhaka, BD";
     EditText uname_box,pass_box;
 
@@ -30,6 +30,8 @@ public class Login extends AppCompatActivity {
         pass_box=findViewById(R.id.ET_password);
 
         login=findViewById(R.id.btn_Sign_in);
+
+        b_calculator=findViewById(R.id.btn_calculator);
 
         btn_cna.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,6 +68,17 @@ public class Login extends AppCompatActivity {
         });
 
 
+        // goto calculator page
+
+        b_calculator.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openCalculator();
+
+            }
+        });
+
+
 
     }
 
@@ -94,6 +107,11 @@ public class Login extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void openCalculator()
+    {
+        Intent i =new Intent(this, Calculator.class);
+        startActivity(i);
+    }
 
 
 

@@ -34,28 +34,34 @@
 
         >
 
-    <EditText
+    <TextView
+        android:id="@+id/tv_up"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
         android:textSize="30sp"
         android:textColorHint="@color/black"
-        android:gravity="center"
+        android:inputType="number"
+        android:gravity="end"
         android:textStyle="bold"
-
+        android:layout_marginTop="20sp"
+        android:paddingLeft="10sp"
+        android:paddingRight="10sp"
 
         />
 
-    <EditText
+    <TextView
         android:id="@+id/downTV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Please Enter Input"
+        android:inputType="number"
         android:textSize="30sp"
         android:textColorHint="@color/black"
-        android:gravity="center"
+        android:gravity="end"
         android:textStyle="bold"
         android:layout_marginBottom="20sp"
+        android:paddingLeft="10sp"
+        android:paddingRight="10sp"
 
         />
 
@@ -223,7 +229,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="<-"
+            android:text="←"
             android:backgroundTint="@color/black"
             android:layout_margin="5sp"
             />

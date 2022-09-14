@@ -5,36 +5,38 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class Calculator extends AppCompatActivity {
-    TextView dtv;
-    Button b7,bequal;
+    TextView dtv,u_tv;
+    Button b_7,b_equal;
 
     private String data7;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calculator);
-        b7=findViewById(R.id.f7);
+        b_7=findViewById(R.id.f7);
         dtv=findViewById(R.id.downTV);
-        bequal=findViewById(R.id.btnEqual);
+        u_tv=findViewById(R.id.tv_up);
+        b_equal=findViewById(R.id.btnEqual);
 
-        b7.setOnClickListener(new View.OnClickListener() {
+        b_7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String text = dtv.getText().toString();
-                dtv.setText(text);
+              //  String text = dtv.getText().toString();
+                u_tv.setText("7");
             }
         });
 
 
 
 
-        bequal.setOnClickListener(new View.OnClickListener() {
+        b_equal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                data7 = b7.getText().toString();
+                data7 = b_7.getText().toString();
             }
         });
 
