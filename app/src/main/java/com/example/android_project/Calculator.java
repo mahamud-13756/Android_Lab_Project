@@ -57,7 +57,7 @@ public class Calculator extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 final String expressionText = expression.getText().toString();
-                expression.setText(expressionText + "1");
+                expression.setText(expressionText + "2");
             }
         });
 
@@ -66,7 +66,7 @@ public class Calculator extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 final String expressionText = expression.getText().toString();
-                expression.setText(expressionText + "2");
+                expression.setText(expressionText + "3");
             }
         });
 
@@ -75,7 +75,7 @@ public class Calculator extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 final String expressionText = expression.getText().toString();
-                expression.setText(expressionText + "3");
+                expression.setText(expressionText + "4");
             }
         });
 
@@ -145,7 +145,16 @@ public class Calculator extends AppCompatActivity {
         b_plus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                final String expressionText = expression.getText().toString();
 
+
+                if(expressionText.isEmpty()){
+                    expression.setText("0+");
+
+                }
+                else{
+                    final char getLastCharacter = expressionText.charAt(expressionText.length()-1);
+                }
             }
         });
 
@@ -204,7 +213,9 @@ public class Calculator extends AppCompatActivity {
         b_clear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                final String expressionText = expression.getText().toString();
+                expression.setText("");
+                resultHolder.setText("");
             }
         });
 
