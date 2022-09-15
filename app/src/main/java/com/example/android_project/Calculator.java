@@ -9,10 +9,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 public class Calculator extends AppCompatActivity {
-    TextView dtv,u_tv;
+    TextView expression,resultHolder;
     Button b_1,b_2,b_3,b_4,b_5,b_6,b_7,b_8,b_9,b_0,b_dot,b_plus,b_minus,b_mul,b_div,b_percentage,b_arrow,b_clear,b_equal;
 
-    private String data7;
+    private String data7,expressionText;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,16 +39,16 @@ public class Calculator extends AppCompatActivity {
         b_equal=findViewById(R.id.btn_equal);
 
 
-        dtv=findViewById(R.id.downTV);
-        u_tv=findViewById(R.id.tv_up);
+        expression=findViewById(R.id.expression);
+        resultHolder=findViewById(R.id.resultHolder);
 
 
 
         b_1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //  String text = dtv.getText().toString();
-                u_tv.setText("1");
+                final String expressionText = expression.getText().toString();
+                expression.setText(expressionText + "1");
             }
         });
 
@@ -56,8 +56,8 @@ public class Calculator extends AppCompatActivity {
         b_2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //  String text = dtv.getText().toString();
-                u_tv.setText("2");
+                final String expressionText = expression.getText().toString();
+                expression.setText(expressionText + "1");
             }
         });
 
@@ -65,8 +65,8 @@ public class Calculator extends AppCompatActivity {
         b_3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-              //  String text = dtv.getText().toString();
-                u_tv.setText("3");
+                final String expressionText = expression.getText().toString();
+                expression.setText(expressionText + "2");
             }
         });
 
@@ -74,8 +74,8 @@ public class Calculator extends AppCompatActivity {
         b_4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //  String text = dtv.getText().toString();
-                u_tv.setText("4");
+                final String expressionText = expression.getText().toString();
+                expression.setText(expressionText + "3");
             }
         });
 
@@ -84,8 +84,8 @@ public class Calculator extends AppCompatActivity {
         b_5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //  String text = dtv.getText().toString();
-                u_tv.setText("5");
+                final String expressionText = expression.getText().toString();
+                expression.setText(expressionText + "5");
             }
         });
 
@@ -94,8 +94,8 @@ public class Calculator extends AppCompatActivity {
         b_6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //  String text = dtv.getText().toString();
-                u_tv.setText("6");
+                final String expressionText = expression.getText().toString();
+                expression.setText(expressionText + "6");
             }
         });
 
@@ -104,8 +104,8 @@ public class Calculator extends AppCompatActivity {
         b_7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //  String text = dtv.getText().toString();
-                u_tv.setText("7");
+                final String expressionText = expression.getText().toString();
+                expression.setText(expressionText + "7");
             }
         });
 
@@ -115,8 +115,8 @@ public class Calculator extends AppCompatActivity {
         b_8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //  String text = dtv.getText().toString();
-                u_tv.setText("8");
+                final String expressionText = expression.getText().toString();
+                expression.setText(expressionText + "8");
             }
         });
 
@@ -125,8 +125,8 @@ public class Calculator extends AppCompatActivity {
         b_9.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //  String text = dtv.getText().toString();
-                u_tv.setText("9");
+                final String expressionText = expression.getText().toString();
+                expression.setText(expressionText + "9");
             }
         });
 
@@ -135,8 +135,8 @@ public class Calculator extends AppCompatActivity {
         b_0.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //  String text = dtv.getText().toString();
-                u_tv.setText("0");
+                final String expressionText = expression.getText().toString();
+                expression.setText(expressionText + "0");
             }
         });
 
@@ -145,8 +145,7 @@ public class Calculator extends AppCompatActivity {
         b_plus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //  String text = dtv.getText().toString();
-                u_tv.setText("+");
+
             }
         });
 
@@ -155,9 +154,10 @@ public class Calculator extends AppCompatActivity {
         b_minus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //  String text = dtv.getText().toString();
-                u_tv.setText("-");
+
             }
+
+
         });
 
 
@@ -165,9 +165,10 @@ public class Calculator extends AppCompatActivity {
         b_div.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //  String text = dtv.getText().toString();
-                u_tv.setText("/");
+
             }
+
+
         });
 
 
@@ -175,8 +176,7 @@ public class Calculator extends AppCompatActivity {
         b_mul.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //  String text = dtv.getText().toString();
-                u_tv.setText("*");
+
             }
         });
 
@@ -185,8 +185,7 @@ public class Calculator extends AppCompatActivity {
         b_percentage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //  String text = dtv.getText().toString();
-                u_tv.setText("%");
+
             }
         });
 
@@ -195,8 +194,7 @@ public class Calculator extends AppCompatActivity {
         b_dot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //  String text = dtv.getText().toString();
-                u_tv.setText(".");
+
             }
         });
 
@@ -206,8 +204,7 @@ public class Calculator extends AppCompatActivity {
         b_clear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //  String text = dtv.getText().toString();
-                u_tv.setText("");
+
             }
         });
 
@@ -217,7 +214,7 @@ public class Calculator extends AppCompatActivity {
         b_equal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                data7 = b_7.getText().toString();
+
             }
         });
 

@@ -35,7 +35,7 @@
         >
 
     <TextView
-        android:id="@+id/tv_up"
+        android:id="@+id/resultHolder"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
@@ -52,11 +52,13 @@
         />
 
     <TextView
-        android:id="@+id/downTV"
+        android:id="@+id/expression"
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="number"
         android:textSize="30sp"
+        android:hint="0"
         android:textColor="@color/black"
         android:gravity="end"
         android:textStyle="bold"
