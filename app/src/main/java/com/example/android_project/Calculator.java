@@ -154,6 +154,13 @@ public class Calculator extends AppCompatActivity {
                 }
                 else{
                     final char getLastCharacter = expressionText.charAt(expressionText.length()-1);
+
+                    if(getLastCharacter=='+' || getLastCharacter=='-' || getLastCharacter=='*' || getLastCharacter=='/'){
+                        expression.setText(expressionText.substring(0,expressionText.length()-1)+"+");
+                    }
+                    else{
+                        expression.setText(expressionText+"+");
+                    }
                 }
             }
         });
