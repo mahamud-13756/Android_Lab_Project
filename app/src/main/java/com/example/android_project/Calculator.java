@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-
+// delete button function vdo er 29 min a https://www.youtube.com/watch?v=bJHQf8wHWZw
 public class Calculator extends AppCompatActivity {
     TextView expression,resultHolder;
     Button b_1,b_2,b_3,b_4,b_5,b_6,b_7,b_8,b_9,b_0,b_dot,b_plus,b_minus,b_mul,b_div,b_percentage,b_arrow,b_clear,b_equal;
@@ -171,6 +171,24 @@ public class Calculator extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                final String expressionText = expression.getText().toString();
+
+
+                if(expressionText.isEmpty()){
+                    expression.setText("0-");
+
+                }
+                else{
+                    final char getLastCharacter = expressionText.charAt(expressionText.length()-1);
+
+                    if(getLastCharacter=='+' || getLastCharacter=='-' || getLastCharacter=='*' || getLastCharacter=='/'){
+                        expression.setText(expressionText.substring(0,expressionText.length()-1)+"-");
+                    }
+                    else{
+                        expression.setText(expressionText+"-");
+                    }
+                }
+
             }
 
 
@@ -182,6 +200,23 @@ public class Calculator extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                final String expressionText = expression.getText().toString();
+
+
+                if(expressionText.isEmpty()){
+                    expression.setText("0/");
+
+                }
+                else{
+                    final char getLastCharacter = expressionText.charAt(expressionText.length()-1);
+
+                    if(getLastCharacter=='+' || getLastCharacter=='-' || getLastCharacter=='*' || getLastCharacter=='/'){
+                        expression.setText(expressionText.substring(0,expressionText.length()-1)+"/");
+                    }
+                    else{
+                        expression.setText(expressionText+"/");
+                    }
+                }
             }
 
 
@@ -193,10 +228,28 @@ public class Calculator extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                final String expressionText = expression.getText().toString();
+
+
+                if(expressionText.isEmpty()){
+                    expression.setText("0*");
+
+                }
+                else{
+                    final char getLastCharacter = expressionText.charAt(expressionText.length()-1);
+
+                    if(getLastCharacter=='+' || getLastCharacter=='-' || getLastCharacter=='*' || getLastCharacter=='/'){
+                        expression.setText(expressionText.substring(0,expressionText.length()-1)+"*");
+                    }
+                    else{
+                        expression.setText(expressionText+"*");
+                    }
+                }
             }
         });
 
 
+        // delete button function vdo er 29 min a https://www.youtube.com/watch?v=bJHQf8wHWZw
 
         b_percentage.setOnClickListener(new View.OnClickListener() {
             @Override
