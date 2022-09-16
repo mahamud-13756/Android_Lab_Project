@@ -12,6 +12,10 @@ public class Calculator extends AppCompatActivity {
     TextView expression,resultHolder;
     Button b_1,b_2,b_3,b_4,b_5,b_6,b_7,b_8,b_9,b_0,b_dot,b_plus,b_minus,b_mul,b_div,b_percentage,b_arrow,b_clear,b_equal;
 
+    private String[] BODMAS_RULE = {"÷","×","\\+","-"};
+
+    private int CURRENT_RULE=0;
+
     private String data7,expressionText;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -155,7 +159,7 @@ public class Calculator extends AppCompatActivity {
                 else{
                     final char getLastCharacter = expressionText.charAt(expressionText.length()-1);
 
-                    if(getLastCharacter=='+' || getLastCharacter=='-' || getLastCharacter=='*' || getLastCharacter=='/'){
+                    if(getLastCharacter=='+' || getLastCharacter=='-' || getLastCharacter=='×' || getLastCharacter=='÷'){
                         expression.setText(expressionText.substring(0,expressionText.length()-1)+"+");
                     }
                     else{
@@ -181,7 +185,7 @@ public class Calculator extends AppCompatActivity {
                 else{
                     final char getLastCharacter = expressionText.charAt(expressionText.length()-1);
 
-                    if(getLastCharacter=='+' || getLastCharacter=='-' || getLastCharacter=='*' || getLastCharacter=='/'){
+                    if(getLastCharacter=='+' || getLastCharacter=='-' || getLastCharacter=='×' || getLastCharacter=='÷'){
                         expression.setText(expressionText.substring(0,expressionText.length()-1)+"-");
                     }
                     else{
@@ -204,17 +208,17 @@ public class Calculator extends AppCompatActivity {
 
 
                 if(expressionText.isEmpty()){
-                    expression.setText("0/");
+                    expression.setText("0÷");
 
                 }
                 else{
                     final char getLastCharacter = expressionText.charAt(expressionText.length()-1);
 
-                    if(getLastCharacter=='+' || getLastCharacter=='-' || getLastCharacter=='*' || getLastCharacter=='/'){
-                        expression.setText(expressionText.substring(0,expressionText.length()-1)+"/");
+                    if(getLastCharacter=='+' || getLastCharacter=='-' || getLastCharacter=='×' || getLastCharacter=='÷'){
+                        expression.setText(expressionText.substring(0,expressionText.length()-1)+"÷");
                     }
                     else{
-                        expression.setText(expressionText+"/");
+                        expression.setText(expressionText+"÷");
                     }
                 }
             }
@@ -232,17 +236,17 @@ public class Calculator extends AppCompatActivity {
 
 
                 if(expressionText.isEmpty()){
-                    expression.setText("0*");
+                    expression.setText("0×");
 
                 }
                 else{
                     final char getLastCharacter = expressionText.charAt(expressionText.length()-1);
 
-                    if(getLastCharacter=='+' || getLastCharacter=='-' || getLastCharacter=='*' || getLastCharacter=='/'){
-                        expression.setText(expressionText.substring(0,expressionText.length()-1)+"*");
+                    if(getLastCharacter=='+' || getLastCharacter=='-' || getLastCharacter=='×' || getLastCharacter=='÷'){
+                        expression.setText(expressionText.substring(0,expressionText.length()-1)+"×");
                     }
                     else{
-                        expression.setText(expressionText+"*");
+                        expression.setText(expressionText+"×");
                     }
                 }
             }
@@ -263,6 +267,7 @@ public class Calculator extends AppCompatActivity {
         b_dot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
 
             }
         });
@@ -286,8 +291,111 @@ public class Calculator extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                final String expressionText= expression.getText().toString();
+
+                if(expressionText.contains("+") || expressionText.contains("-")|| expressionText.contains("×")|| expressionText.contains("÷")){
+                    final char getLastCharacter = expressionText.charAt(expressionText.length()-1);
+
+                    if(getLastCharacter !='+' || getLastCharacter !='-' || getLastCharacter !='×' || getLastCharacter !='÷' ){
+                        calculateResult(expression,resultHolder,expressionText);
+                    }
+                }
+
             }
         });
 
+
+    }
+
+    private void calculateResult(TextView expression, TextView resultHolder, String expressionText) {
+        String expressionText2= expressionText;
+
+        while(true)
+        {
+            if(CURRENT_RULE==2 && !expressionText2.contains("+")){
+                CURRENT_RULE++;
+                continue;
+            }
+            else if(CURRENT_RULE!=2 && !expressionText2.contains(BODMAS_RULE[CURRENT_RULE])){
+                if(CURRENT_RULE==3){
+                    break;
+                }
+                else{
+                    CURRENT_RULE++;
+                    continue;
+                }
+            }
+
+            String [] expressionArray = expressionText2.split(BODMAS_RULE[CURRENT_RULE]);
+
+            if(expressionArray.length==1 || expressionArray[0].isEmpty()){
+                break;
+            }
+
+            StringBuilder firstValue = new StringBuilder();
+            StringBuilder secondValue = new StringBuilder();
+
+            for(int i=expressionArray[0].length()-1;i>=0; i--){
+
+                if(expressionArray[0].charAt(i)=='+' || expressionArray[0].charAt(i)=='-' || expressionArray[0].charAt(i)=='×' || expressionArray[0].charAt(i)=='÷') {
+                    break;
+                }
+                else{
+                    firstValue.insert(0, expressionArray[0].charAt(i));
+                }
+            }
+
+            for(int i=0; i<expressionArray[0].length(); i++){
+                if(expressionArray[1].charAt(i)=='+' || expressionArray[1].charAt(i)=='-' || expressionArray[1].charAt(i)=='×' || expressionArray[1].charAt(i)=='÷'){
+                    break;
+                }
+                else{
+                    secondValue.append((expressionArray[1].charAt(i)));
+                }
+            }
+
+            double results;
+
+            switch(BODMAS_RULE[CURRENT_RULE]){
+
+                case "÷" :
+                    results =Double.parseDouble(firstValue.toString()) / Double.parseDouble(secondValue.toString());
+                    break;
+
+                case"×" :
+
+                    results =Double.parseDouble(firstValue.toString()) * Double.parseDouble(secondValue.toString());
+                    break;
+
+                case "+" :
+                case"\\+" :
+                    results =Double.parseDouble(firstValue.toString()) + Double.parseDouble(secondValue.toString());
+                    break;
+
+                case "-":
+                    results =Double.parseDouble(firstValue.toString()) - Double.parseDouble(secondValue.toString());
+                    break;
+
+                default:
+                    results=0;
+
+            }
+
+            expressionText2 = expressionText2.replaceFirst(firstValue + BODMAS_RULE[CURRENT_RULE]+ secondValue, String.valueOf(results));
+
+        }
+
+        CURRENT_RULE=0;
+
+        resultHolder.setText(expressionText);
+
+        String [] finalResultArray= expressionText2.split("\\.");
+
+        if(finalResultArray[1].length() == 1 && finalResultArray[1].equals("0")){
+            expression.setText(finalResultArray[0]);
+        }
+        else{
+            expression.setText(expressionText2);
+        }
     }
 }
