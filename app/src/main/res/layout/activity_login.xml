@@ -24,35 +24,46 @@
 
         />
 
-    <EditText
-        android:id="@+id/ET_username"
+    <com.google.android.material.textfield.TextInputLayout
+
         android:layout_width="match_parent"
-        android:layout_height="50sp"
-        android:hint="Username or Email"
-        android:textColorHint="@color/black"
-        android:paddingStart="20dp"
-        android:textSize="30sp"
-        android:layout_marginBottom="20sp"
-        android:inputType="textEmailAddress"
+        android:layout_height="60sp"
+        android:hint="Username"
+        android:textColorHint="@android:color/black"
         android:background="@drawable/edit_background"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/ET_username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
 
 
-        />
 
-    <EditText
-        android:id="@+id/ET_password"
+
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_height="50sp"
+        android:layout_height="60sp"
         android:hint="Password"
         android:textColorHint="@color/black"
-        android:paddingStart="20dp"
-        android:textSize="30sp"
-        android:layout_marginBottom="20sp"
-        android:inputType="textPassword"
+        app:passwordToggleEnabled="true"
         android:background="@drawable/edit_background"
+        android:layout_marginTop="15sp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/ET_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:textSize="20sp"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
 
 
-        />
 
     <Button
         android:id="@+id/btn_Forgotten_Password"
@@ -62,7 +73,7 @@
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="italic"
-
+        android:layout_marginTop="25sp"
         android:backgroundTint="#00000000"
 
         />
@@ -74,7 +85,7 @@
         android:layout_height="50sp"
         android:text="Sign In"
         android:textSize="20sp"
-        android:layout_marginTop="10sp"
+        android:layout_marginTop="20sp"
         android:backgroundTint="@color/black"
 
         />
