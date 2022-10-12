@@ -13,7 +13,7 @@ import android.widget.Toast;
 import java.util.Objects;
 
 public class Login extends AppCompatActivity {
-    Button btn_cna, btn_fp, login, b_calculator;
+    Button btn_cna, btn_fp, login, b_calculator, b_bottleSpinner;
     String uname,pass,u="mahamud",n="Md. Mahamud", p="123456", t="Does not Match data",ag="23",con="01627395446", ad="Dhaka, BD";
     EditText uname_box,pass_box;
 
@@ -32,6 +32,8 @@ public class Login extends AppCompatActivity {
         login=findViewById(R.id.btn_Sign_in);
 
         b_calculator=findViewById(R.id.btn_calculator);
+
+        b_bottleSpinner = findViewById(R.id.btn_bottle_spinner);
 
         btn_cna.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,6 +81,15 @@ public class Login extends AppCompatActivity {
         });
 
 
+        b_bottleSpinner.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openBottleSpinner();
+            }
+
+        });
+
+
 
     }
 
@@ -110,6 +121,12 @@ public class Login extends AppCompatActivity {
     public void openCalculator()
     {
         Intent i =new Intent(this, Calculator.class);
+        startActivity(i);
+    }
+
+
+    public void openBottleSpinner(){
+        Intent i = new Intent(this, Bottle_Spinner.class);
         startActivity(i);
     }
 
