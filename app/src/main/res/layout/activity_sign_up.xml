@@ -17,7 +17,7 @@
         android:text="Sign Up"
         android:textSize="50sp"
         android:layout_marginTop="40sp"
-        android:layout_marginBottom="50sp"
+        android:layout_marginBottom="30sp"
         android:textColor="@color/black"
         android:textStyle="bold"
         android:gravity="center_horizontal"
@@ -25,19 +25,31 @@
         />
 
     <EditText
-        android:id="@+id/Name"
+        android:id="@+id/s_userName"
         android:layout_width="match_parent"
         android:layout_height="50sp"
         android:hint="@string/username"
         android:textColorHint="@color/black"
         android:paddingStart="20dp"
         android:textSize="30sp"
-        android:layout_marginBottom="20sp"
+        android:layout_marginBottom="10sp"
         android:inputType="text"
         android:background="@drawable/edit_background"
 
 
         />
+    <EditText
+        android:id="@+id/s_pass"
+        android:layout_width="match_parent"
+        android:layout_height="50sp"
+        android:hint="Password"
+        android:textColorHint="@color/black"
+        android:paddingStart="20dp"
+        android:textSize="30sp"
+        android:layout_marginBottom="10sp"
+        android:inputType="textPassword"
+        android:background="@drawable/edit_background"/>
+
 
     <EditText
         android:id="@+id/Email"
@@ -47,7 +59,7 @@
         android:textColorHint="@color/black"
         android:paddingStart="20dp"
         android:textSize="30sp"
-        android:layout_marginBottom="20sp"
+        android:layout_marginBottom="10sp"
         android:inputType="text"
         android:background="@drawable/edit_background"
 
@@ -62,7 +74,7 @@
         android:textColorHint="@color/black"
         android:paddingStart="20dp"
         android:textSize="30sp"
-        android:layout_marginBottom="20sp"
+        android:layout_marginBottom="10sp"
         android:inputType="date"
         android:background="@drawable/edit_background"
 
@@ -81,7 +93,7 @@
         android:textColorHint="@color/black"
         android:paddingStart="20dp"
         android:textSize="30sp"
-        android:layout_marginBottom="20sp"
+        android:layout_marginBottom="10sp"
         android:background="@drawable/edit_background"
         android:inputType="number"
 
@@ -94,7 +106,7 @@
         android:textColorHint="@color/black"
         android:paddingStart="20dp"
         android:textSize="30sp"
-        android:layout_marginBottom="20sp"
+        android:layout_marginBottom="10sp"
         android:inputType="text"
         android:background="@drawable/edit_background"
 

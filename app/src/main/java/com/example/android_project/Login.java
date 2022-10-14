@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -56,13 +57,25 @@ public class Login extends AppCompatActivity {
                 uname=uname_box.getText().toString();
                 pass=pass_box.getText().toString();
 
-                if(Objects.equals(u, uname) && Objects.equals(p, pass)){
-                    openHomePage1();
-                }
-                else{
-                    Toast.makeText(getApplicationContext(),t,Toast.LENGTH_SHORT).show();//kon page,kon data,koto time dekhabo
+                // SharedPreferences read data
+                SharedPreferences sharedPreferences = getSharedPreferences("userDetails", Context.MODE_PRIVATE);
+                // jodi store kora data file er moddhe thake tobe kaj hobe
+                if(sharedPreferences.contains("usenameKey") && sharedPreferences.contains("passwordKey")){
+                    String username = sharedPreferences.getString("usenameKey","Data not found");
+                    String password = sharedPreferences.getString("passwordKey","Data not found");
+
+                    if(uname.equals(username) && pass.equals(password)){
+                        openHomePage1();
+                    }else{
+                        Toast.makeText(getApplicationContext(),"Does not match data",Toast.LENGTH_SHORT).show();
+                    }
+
+                }else{
+                    Toast.makeText(getApplicationContext(),"Please store data",Toast.LENGTH_SHORT).show();
 
                 }
+
+
 
 
 
