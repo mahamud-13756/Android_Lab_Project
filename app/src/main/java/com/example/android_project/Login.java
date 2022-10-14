@@ -11,12 +11,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.material.textfield.TextInputEditText;
+
 import java.util.Objects;
 
 public class Login extends AppCompatActivity {
     Button btn_cna, btn_fp, login, b_calculator, b_bottleSpinner;
     String uname,pass,u="mahamud",n="Md. Mahamud", p="123456", t="Does not Match data",ag="23",con="01627395446", ad="Dhaka, BD";
-    EditText uname_box,pass_box;
+    TextInputEditText uname_box,pass_box;
 
 
     @Override
