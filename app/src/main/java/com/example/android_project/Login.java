@@ -59,6 +59,17 @@ public class Login extends AppCompatActivity {
                 uname=uname_box.getText().toString();
                 pass=pass_box.getText().toString();
 
+                //  Box fill up is required!
+                if( uname_box.getText().toString().trim().equals(""))
+                {
+                    uname_box.setError( "username name is required!" );
+                }
+
+                if( pass_box.getText().toString().trim().equals(""))
+                {
+                    pass_box.setError( "password is required!" );
+                }
+
                 // SharedPreferences read data
                 SharedPreferences sharedPreferences = getSharedPreferences("userDetails", Context.MODE_PRIVATE);
                 // jodi store kora data file er moddhe thake tobe kaj hobe

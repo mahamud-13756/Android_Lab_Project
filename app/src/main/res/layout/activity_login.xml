@@ -29,6 +29,7 @@
         android:layout_width="match_parent"
         android:layout_height="60sp"
         android:hint="Username"
+
         android:textColorHint="@android:color/black"
         android:background="@drawable/edit_background"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
@@ -37,6 +38,7 @@
             android:id="@+id/ET_username"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+
             android:textSize="20sp"/>
 
     </com.google.android.material.textfield.TextInputLayout>
