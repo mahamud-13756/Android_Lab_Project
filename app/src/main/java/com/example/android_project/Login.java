@@ -4,18 +4,21 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.material.textfield.TextInputEditText;
+
 import java.util.Objects;
 
 public class Login extends AppCompatActivity {
     Button btn_cna, btn_fp, login, b_calculator, b_bottleSpinner;
     String uname,pass,u="mahamud",n="Md. Mahamud", p="123456", t="Does not Match data",ag="23",con="01627395446", ad="Dhaka, BD";
-    EditText uname_box,pass_box;
+    TextInputEditText uname_box,pass_box;
 
 
     @Override
@@ -56,13 +59,36 @@ public class Login extends AppCompatActivity {
                 uname=uname_box.getText().toString();
                 pass=pass_box.getText().toString();
 
-                if(Objects.equals(u, uname) && Objects.equals(p, pass)){
-                    openHomePage1();
+                //  Box fill up is required!
+                if( uname_box.getText().toString().trim().equals(""))
+                {
+                    uname_box.setError( "username name is required!" );
                 }
-                else{
-                    Toast.makeText(getApplicationContext(),t,Toast.LENGTH_SHORT).show();//kon page,kon data,koto time dekhabo
+
+                if( pass_box.getText().toString().trim().equals(""))
+                {
+                    pass_box.setError( "password is required!" );
+                }
+
+                // SharedPreferences read data
+                SharedPreferences sharedPreferences = getSharedPreferences("userDetails", Context.MODE_PRIVATE);
+                // jodi store kora data file er moddhe thake tobe kaj hobe
+                if(sharedPreferences.contains("usenameKey") && sharedPreferences.contains("passwordKey")){
+                    String username = sharedPreferences.getString("usenameKey","Data not found");
+                    String password = sharedPreferences.getString("passwordKey","Data not found");
+
+                    if(uname.equals(username) && pass.equals(password)){
+                        openHomePage1();
+                    }else{
+                        Toast.makeText(getApplicationContext(),"Does not match data",Toast.LENGTH_SHORT).show();
+                    }
+
+                }else{
+                    Toast.makeText(getApplicationContext(),"Please store data",Toast.LENGTH_SHORT).show();
 
                 }
+
+
 
 
 

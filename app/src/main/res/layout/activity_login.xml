@@ -29,6 +29,11 @@
         android:layout_width="match_parent"
         android:layout_height="60sp"
         android:hint="Username"
+ Shared_Preference1
+
+        android:textColorHint="@android:color/black"
+        android:background="@drawable/edit_background"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
         android:textColorHint="@android:color/black"
         android:background="@drawable/edit_background"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
@@ -41,9 +46,24 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
+ main
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/ET_username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+ Shared_Preference1
+            android:textSize="20sp"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
 
 
 
+
+=======
+
+ main
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="60sp"
@@ -53,6 +73,8 @@
         android:background="@drawable/edit_background"
         android:layout_marginTop="15sp"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+ Shared_Preference1
+
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/ET_password"
@@ -62,8 +84,19 @@
             android:textSize="20sp"/>
 
     </com.google.android.material.textfield.TextInputLayout>
+ main
 
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/ET_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:textSize="20sp"/>
 
+ Shared_Preference1
+    </com.google.android.material.textfield.TextInputLayout>
+
+ main
 
     <Button
         android:id="@+id/btn_Forgotten_Password"
