@@ -89,6 +89,8 @@ public class Sign_up extends AppCompatActivity {
 
         if(username.equals("") && password.equals("")){
             Toast.makeText(getApplicationContext(),"Please Enter Data",Toast.LENGTH_SHORT).show();
+
+
         }else{
             // SharedPreference writing data
             SharedPreferences sharedPreferences = getSharedPreferences("userDetails", Context.MODE_PRIVATE);
