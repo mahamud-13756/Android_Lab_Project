@@ -112,7 +112,7 @@
         android:layout_height="50sp"
         android:text="Calculator"
         android:textSize="20sp"
-        android:layout_marginTop="60sp"
+        android:layout_marginTop="30sp"
         android:backgroundTint="@color/black"
 
         />
@@ -122,6 +122,16 @@
         android:layout_width="match_parent"
         android:layout_height="50sp"
         android:text="Bottle Spinner Game"
+        android:textSize="20sp"
+        android:layout_marginTop="10sp"
+        android:backgroundTint="@color/black"
+
+        />
+    <Button
+        android:id="@+id/btn_view"
+        android:layout_width="match_parent"
+        android:layout_height="50sp"
+        android:text="View"
         android:textSize="20sp"
         android:layout_marginTop="10sp"
         android:backgroundTint="@color/black"

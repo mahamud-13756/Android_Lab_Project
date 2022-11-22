@@ -2,12 +2,15 @@ package com.example.android_project;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class Home_Page extends AppCompatActivity {
     TextView tvname,tvage,tvcontact,tvaddress;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -17,6 +20,8 @@ public class Home_Page extends AppCompatActivity {
         tvage=findViewById(R.id.TV_age);
         tvcontact=findViewById(R.id.TV_contact);
         tvaddress=findViewById(R.id.TV_address);
+
+
 
         // rcv data from signuppage
 
@@ -35,5 +40,12 @@ public class Home_Page extends AppCompatActivity {
         Intent iaddress = getIntent();
         String address=iaddress.getStringExtra("Address");
         tvaddress.setText(address);
+
+
+
     }
+
+
+
+
 }
