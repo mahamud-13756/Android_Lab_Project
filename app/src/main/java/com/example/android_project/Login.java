@@ -16,7 +16,7 @@ import com.google.android.material.textfield.TextInputEditText;
 import java.util.Objects;
 
 public class Login extends AppCompatActivity {
-    Button btn_cna, btn_fp, login, b_calculator, b_bottleSpinner;
+    Button btn_cna, btn_fp, login, b_calculator, b_bottleSpinner,b_view;
     String uname,pass,u="mahamud",n="Md. Mahamud", p="123456", t="Does not Match data",ag="23",con="01627395446", ad="Dhaka, BD";
     TextInputEditText uname_box,pass_box;
 
@@ -37,6 +37,8 @@ public class Login extends AppCompatActivity {
         b_calculator=findViewById(R.id.btn_calculator);
 
         b_bottleSpinner = findViewById(R.id.btn_bottle_spinner);
+
+        b_view = findViewById(R.id.btn_view);
 
         btn_cna.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -116,6 +118,14 @@ public class Login extends AppCompatActivity {
         });
 
 
+        b_view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openViewM();
+            }
+        });
+
+
 
     }
 
@@ -133,9 +143,6 @@ public class Login extends AppCompatActivity {
 
 
     public void openHomePage1(){
-
-
-
         Intent intent=new Intent(this, Home_Page.class);
         intent.putExtra("Name",n);
         intent.putExtra("Age",ag);
@@ -153,6 +160,11 @@ public class Login extends AppCompatActivity {
 
     public void openBottleSpinner(){
         Intent i = new Intent(this, Bottle_Spinner.class);
+        startActivity(i);
+    }
+
+    public void openViewM(){
+        Intent i = new Intent(this, View.class);
         startActivity(i);
     }
 
