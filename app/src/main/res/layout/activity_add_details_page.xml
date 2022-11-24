@@ -101,7 +101,7 @@
     <EditText
         android:id="@+id/s_address"
         android:layout_width="match_parent"
-        android:layout_height="80sp"
+        android:layout_height="50sp"
         android:hint="Address"
         android:textColorHint="@color/black"
         android:paddingStart="20dp"
