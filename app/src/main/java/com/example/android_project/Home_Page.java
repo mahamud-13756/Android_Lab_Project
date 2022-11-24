@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class Home_Page extends AppCompatActivity {
     TextView tvname,tvage,tvcontact,tvaddress;
-
+    Button b_details;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,6 +20,8 @@ public class Home_Page extends AppCompatActivity {
         tvage=findViewById(R.id.TV_age);
         tvcontact=findViewById(R.id.TV_contact);
         tvaddress=findViewById(R.id.TV_address);
+
+        b_details = findViewById(R.id.btn_details);
 
 
 
@@ -43,6 +45,22 @@ public class Home_Page extends AppCompatActivity {
 
 
 
+        b_details.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openAddDetails();
+            }
+        });
+
+
+
+    }
+
+    public void openAddDetails()
+    {
+        Intent i =new Intent(this,AddDetailsPage.class);
+
+        startActivity(i);
     }
 
 
