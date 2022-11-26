@@ -13,35 +13,23 @@ import android.widget.ExpandableListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.material.textfield.TextInputEditText;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
-
 public class Sign_up extends AppCompatActivity {
-    TextInputEditText Name,Password, Email,/*age_box,*/Contact,Address;
+    EditText userName_box,password_box, email_box,age_box,contact_box,address_box;
     TextView Already_Have_Account;
     Button signup;
-    private String name,email, /*age,*/ contact, address,password,username;
-
-    int check=0;
-
-    String url2="https://imraju.com/labfinal/api/";
+    private String name, age, contact, address,password,username;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
-        Name = findViewById(R.id.Name);
-        Password = findViewById(R.id.Password);
-        Email=findViewById(R.id.Email);
-        //age_box=findViewById(R.id.Age);
-        Contact=findViewById(R.id.Contact);
-        Address=findViewById(R.id.Address);
+        userName_box = findViewById(R.id.s_userName);
+        password_box = findViewById(R.id.s_pass);
+        email_box=findViewById(R.id.Email);
+        age_box=findViewById(R.id.Age);
+        contact_box=findViewById(R.id.Contact);
+        address_box=findViewById(R.id.Address);
         Already_Have_Account=findViewById(R.id.AHA);
 
         signup=findViewById(R.id.btn_Sign_up);
@@ -50,27 +38,20 @@ public class Sign_up extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                username = Name.getText().toString();
-                password = Password.getText().toString();
+                username = userName_box.getText().toString();
+                password = password_box.getText().toString();
 
-                name = Name.getText().toString();
-                email= Email.getText().toString();
-                //Toast.makeText(getApplicationContext(),name,Toast.LENGTH_SHORT).show();//kon page,kon data,koto time dekhabo
+                name = userName_box.getText().toString();
+                Toast.makeText(getApplicationContext(),name,Toast.LENGTH_SHORT).show();//kon page,kon data,koto time dekhabo
 
-                //age = age_box.getText().toString();
+                age = age_box.getText().toString();
 
-                contact = Contact.getText().toString();
+                contact = contact_box.getText().toString();
 
-                address = Address.getText().toString();
+                address = address_box.getText().toString();
 
-                required();
 
-                if(check==1){
-                    openHomePage();
-                }else{
-                    Toast.makeText(getApplicationContext(),"Please fill up data field",Toast.LENGTH_SHORT).show();
-                }
-
+                openHomePage();
 
                 /*String add = address_box.getText().toString();
                 Toast.makeText(getApplicationContext(),add,Toast.LENGTH_SHORT).show();*/
@@ -105,100 +86,39 @@ public class Sign_up extends AppCompatActivity {
 
         Intent i = new Intent(this, Home_Page.class);
 
-                            // Shared Preference login code
-                            /*if(username.equals("") && password.equals("")){
-                                Toast.makeText(getApplicationContext(),"Please Enter Data",Toast.LENGTH_SHORT).show();
+
+        if(username.equals("") && password.equals("")){
+            Toast.makeText(getApplicationContext(),"Please Enter Data",Toast.LENGTH_SHORT).show();
 
 
-                               }else{
-                                // SharedPreference writing data
-                                 SharedPreferences sharedPreferences = getSharedPreferences("userDetails", Context.MODE_PRIVATE);
-                                 SharedPreferences.Editor editor = sharedPreferences.edit(); // data write
-                                    editor.putString("usenameKey",username);
-                                        editor.putString("passwordKey",password);
-                                            editor.commit();
-                                             Toast.makeText(getApplicationContext(),"Data saved successfully",Toast.LENGTH_SHORT).show();
-                                         }*/
-
-
-            // Reg Add Data code
-
-            Retrofit retrofit= new Retrofit.Builder()
-                    .baseUrl(url2)
-                    .addConverterFactory(GsonConverterFactory.create())
-                    .build();
-
-            RegApiPostData regApiPostData = retrofit.create(RegApiPostData.class);
-
-            Call<RegResponseModelPost> call2 = regApiPostData.RegAddData(name,email,password,address,contact);
-
-            call2.enqueue(new Callback<RegResponseModelPost>() {
-                @Override
-                public void onResponse(Call<RegResponseModelPost> call, Response<RegResponseModelPost> response) {
-
-                    Name.setText("");
-                    Email.setText("");
-                    Password.setText("");
-                    Address.setText("");
-                    Contact.setText("");
-
-
-                    Toast.makeText(getApplicationContext(),response.toString(),Toast.LENGTH_LONG).show();
-                }
-
-                @Override
-                public void onFailure(Call<RegResponseModelPost> call, Throwable t) {
-                    Toast.makeText(getApplicationContext(),t.toString(),Toast.LENGTH_LONG).show();
-                }
-            });
+        }else{
+            // SharedPreference writing data
+            SharedPreferences sharedPreferences = getSharedPreferences("userDetails", Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPreferences.edit(); // data write
+            editor.putString("usenameKey",username);
+            editor.putString("passwordKey",password);
+            editor.commit();
+            Toast.makeText(getApplicationContext(),"Data saved successfully",Toast.LENGTH_SHORT).show();
+        }
 
 
 
 
+        i.putExtra("Name",name);
+        //startActivity(iname);
 
-/*        i.putExtra("Name",name);
+        //Intent iage = new Intent(this, Home_Page.class);
+        i.putExtra("Age",age);
+        //startActivity(iage);
 
-       // i.putExtra("Age",age);
 
+       // Intent icontact = new Intent(this, Home_Page.class);
         i.putExtra("Contact",contact);
+        //startActivity(icontact);
 
-        i.putExtra("Address",address);*/
-
+        //Intent iaddress = new Intent(this, Home_Page.class);
+        i.putExtra("Address",address);
         startActivity(i);
-    }
-
-
-
-
-    public void required()
-    {
-        if( name.trim().equals("") )
-        {
-            Name.setError( "Name name is required!" );
-        }
-
-        else if( email.trim().equals("") )
-        {
-            Email.setError( "Email name is required!" );
-        }
-
-        else if( password.trim().equals("") )
-        {
-            Password.setError( "Password name is required!" );
-        }
-
-        else if( contact.trim().equals("") )
-        {
-            Contact.setError( "Contact name is required!" );
-        }
-
-        else if( address.trim().equals("") )
-        {
-            Address.setError( "Address name is required!" );
-        }
-        else {
-            check=1;
-        }
     }
 
 
