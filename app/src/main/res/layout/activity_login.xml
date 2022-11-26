@@ -28,17 +28,17 @@
 
         android:layout_width="match_parent"
         android:layout_height="60sp"
-        android:hint="Username"
-
+        android:hint="Email"
+        android:layout_marginBottom="20sp"
         android:textColorHint="@android:color/black"
         android:background="@drawable/edit_background"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/ET_username"
+            android:id="@+id/Email"
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
             android:textSize="20sp"/>
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -53,15 +53,15 @@
         android:textColorHint="@color/black"
         app:passwordToggleEnabled="true"
         android:background="@drawable/edit_background"
-        android:layout_marginTop="15sp"
+        android:layout_marginBottom="20sp"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/ET_password"
+            android:id="@+id/Password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
-            android:textSize="20sp"/>
+            android:textSize="20sp" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -73,9 +73,21 @@
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="italic"
-
+        android:layout_marginBottom="20sp"
         android:backgroundTint="#00000000"
 
+        />
+
+    <TextView
+        android:id="@+id/showMsg"
+        android:layout_width="match_parent"
+        android:layout_height="30sp"
+        android:text="Hello"
+        android:textColor="@color/black"
+        android:gravity="center"
+        android:textStyle="normal"
+        android:layout_marginBottom="20sp"
+        android:textSize="20sp"
         />
 
 
@@ -85,7 +97,6 @@
         android:layout_height="50sp"
         android:text="Sign In"
         android:textSize="20sp"
-        android:layout_marginTop="10sp"
         android:backgroundTint="@color/black"
 
         />
@@ -127,16 +138,7 @@
         android:backgroundTint="@color/black"
 
         />
-    <Button
-        android:id="@+id/btn_view"
-        android:layout_width="match_parent"
-        android:layout_height="50sp"
-        android:text="View"
-        android:textSize="20sp"
-        android:layout_marginTop="10sp"
-        android:backgroundTint="@color/black"
 
-        />
 
 
 

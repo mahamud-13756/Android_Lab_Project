@@ -5,10 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
@@ -16,9 +18,11 @@ import com.google.android.material.textfield.TextInputEditText;
 import java.util.Objects;
 
 public class Login extends AppCompatActivity {
-    Button btn_cna, btn_fp, login, b_calculator, b_bottleSpinner,b_view;
-    String uname,pass,u="mahamud",n="Md. Mahamud", p="123456", t="Does not Match data",ag="23",con="01627395446", ad="Dhaka, BD";
-    TextInputEditText uname_box,pass_box;
+    Button btn_cna, btn_fp, login, b_calculator, b_bottleSpinner;
+    String email,password,t="Does not Match data";
+    TextInputEditText Email,Password;
+    TextView showMsg;
+    int ck=0;
 
 
     @Override
@@ -29,16 +33,16 @@ public class Login extends AppCompatActivity {
         btn_cna = findViewById(R.id.btn_Create_New_Account);
         btn_fp = findViewById(R.id.btn_Forgotten_Password);
 
-        uname_box= findViewById(R.id.ET_username);
-        pass_box=findViewById(R.id.ET_password);
+        Email= findViewById(R.id.Email);
+        Password=findViewById(R.id.Password);
+
+        showMsg = findViewById(R.id.showMsg);
 
         login=findViewById(R.id.btn_Sign_in);
 
         b_calculator=findViewById(R.id.btn_calculator);
 
         b_bottleSpinner = findViewById(R.id.btn_bottle_spinner);
-
-        b_view = findViewById(R.id.btn_view);
 
         btn_cna.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,21 +62,35 @@ public class Login extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                uname=uname_box.getText().toString();
-                pass=pass_box.getText().toString();
+                email=Email.getText().toString();
+                password=Password.getText().toString();
 
                 //  Box fill up is required!
-                if( uname_box.getText().toString().trim().equals(""))
+                if( email.trim().equals(""))
                 {
-                    uname_box.setError( "username name is required!" );
+                    Email.setError( "Email is required!" );
                 }
 
-                if( pass_box.getText().toString().trim().equals(""))
+                else if( password.trim().equals(""))
                 {
-                    pass_box.setError( "password is required!" );
+                    Password.setError( "password is required!" );
+                }
+                else{
+                    ck=1;
                 }
 
-                // SharedPreferences read data
+
+
+                if(ck==1){
+
+                }else{
+                    Email.setText("");
+                    Password.setText("");
+                    showMsg.setText("Please enter email and password");
+                    showMsg.setTextColor(Color.RED);
+                }
+
+               /* // SharedPreferences read data
                 SharedPreferences sharedPreferences = getSharedPreferences("userDetails", Context.MODE_PRIVATE);
                 // jodi store kora data file er moddhe thake tobe kaj hobe
                 if(sharedPreferences.contains("usenameKey") && sharedPreferences.contains("passwordKey")){
@@ -88,7 +106,7 @@ public class Login extends AppCompatActivity {
                 }else{
                     Toast.makeText(getApplicationContext(),"Please store data",Toast.LENGTH_SHORT).show();
 
-                }
+                }*/
 
 
 
@@ -117,17 +135,11 @@ public class Login extends AppCompatActivity {
 
         });
 
-
-        b_view.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openViewM();
-            }
-        });
-
-
-
     }
+
+
+
+
 
 
     public void openSignUpPage(){
@@ -144,10 +156,10 @@ public class Login extends AppCompatActivity {
 
     public void openHomePage1(){
         Intent intent=new Intent(this, Home_Page.class);
-        intent.putExtra("Name",n);
+        /*intent.putExtra("Name",n);
         intent.putExtra("Age",ag);
         intent.putExtra("Contact",con);
-        intent.putExtra("Address",ad);
+        intent.putExtra("Address",ad);*/
         startActivity(intent);
     }
 
