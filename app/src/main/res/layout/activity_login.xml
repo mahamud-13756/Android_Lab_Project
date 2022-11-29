@@ -118,7 +118,7 @@
         android:id="@+id/showMsg"
         android:layout_width="match_parent"
         android:layout_height="30sp"
-        android:text="|"
+        android:text="Hello"
         android:textColor="@color/black"
         android:gravity="center"
         android:textStyle="normal"

@@ -83,41 +83,6 @@ public class Login extends AppCompatActivity {
 
                 if(ck==1){
 
-
-
-                                 // SharedPreference writing data
-                                 SharedPreferences sharedPreferences = getSharedPreferences("userDetails", Context.MODE_PRIVATE);
-                                 SharedPreferences.Editor editor = sharedPreferences.edit(); // data write
-                                 editor.putString("usenameKey",email);
-                                 editor.putString("passwordKey",password);
-                                 editor.commit();
-                                 Toast.makeText(getApplicationContext(),"Data saved successfully",Toast.LENGTH_SHORT).show();
-
-                                 openHomePage();
-
-
-
-
-
-                    /* // SharedPreferences read data
-                SharedPreferences sharedPreferences = getSharedPreferences("userDetails", Context.MODE_PRIVATE);
-                // jodi store kora data file er moddhe thake tobe kaj hobe
-                if(sharedPreferences.contains("usenameKey") && sharedPreferences.contains("passwordKey")){
-                    String username = sharedPreferences.getString("usenameKey","Data not found");
-                    String password = sharedPreferences.getString("passwordKey","Data not found");
-
-                    if(uname.equals(username) && pass.equals(password)){
-                        openHomePage1();
-                    }else{
-                        Toast.makeText(getApplicationContext(),"Does not match data",Toast.LENGTH_SHORT).show();
-                    }
-
-                }else{
-                    Toast.makeText(getApplicationContext(),"Please store data",Toast.LENGTH_SHORT).show();
-
-                }*/
-
-
                 }else{
                     Email.setText("");
                     Password.setText("");
@@ -212,11 +177,6 @@ public class Login extends AppCompatActivity {
 
     public void openViewM(){
         Intent i = new Intent(this, View.class);
-        startActivity(i);
-    }
-
-    public void openHomePage(){
-        Intent i = new Intent(this,Home_Page.class);
         startActivity(i);
     }
 
