@@ -297,6 +297,7 @@ public class Calculator extends AppCompatActivity {
                     final char getLastCharacter = expressionText.charAt(expressionText.length()-1);
 
                     if(getLastCharacter !='+' || getLastCharacter !='-' || getLastCharacter !='×' || getLastCharacter !='÷' ){
+
                         calculateResult(expression,resultHolder,expressionText);
                     }
                 }
