@@ -6,7 +6,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,6 +16,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
+
+import org.json.JSONObject;
 
 import java.util.Objects;
 
@@ -91,9 +95,10 @@ public class Login extends AppCompatActivity {
                                  editor.putString("usenameKey",email);
                                  editor.putString("passwordKey",password);
                                  editor.commit();
-                                 Toast.makeText(getApplicationContext(),"Data saved successfully",Toast.LENGTH_SHORT).show();
+                                // Toast.makeText(getApplicationContext(),"Data saved successfully",Toast.LENGTH_SHORT).show();
 
-                                 openHomePage();
+                    LoadJSON loadTask = new LoadJSON();
+                    loadTask.execute();
 
 
 
@@ -219,6 +224,60 @@ public class Login extends AppCompatActivity {
         Intent i = new Intent(this,Home_Page.class);
         startActivity(i);
     }
+
+
+
+
+
+    //
+
+    class LoadJSON extends AsyncTask< String, Void, String > {
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+
+        }
+        protected String doInBackground(String...args) {
+
+            String urlParameters = "email="+email+"&password="+password;
+            Log.e("perm: ",urlParameters);
+            String xml = Function.excutePost(Function.host+"login.php", urlParameters);
+            return xml;
+        }
+
+        @Override
+        protected void onPostExecute(String xml) {
+            try {
+                Log.d("G", "sTARTING onPost");
+                if (xml != null) {
+                    Log.e("JSON: ",xml);
+                    JSONObject jsonObj =  new JSONObject(xml);
+                    if(jsonObj.optString("status").contentEquals("true")){
+                        Toast.makeText(getApplicationContext(), "Successfull", Toast.LENGTH_SHORT).show();
+                        openHomePage();
+
+
+                    }else{
+                        Toast.makeText(getApplicationContext(), "try again", Toast.LENGTH_SHORT).show();
+                    }
+
+                }
+
+                else {
+                    Log.d("Q", "XML is null");
+                }
+
+            } catch (Exception e) {
+                Log.d("Error", e.toString());
+            }
+
+        }
+
+    }
+
+
+
 
 
 
