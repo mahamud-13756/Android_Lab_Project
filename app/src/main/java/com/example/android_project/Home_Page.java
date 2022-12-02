@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class Home_Page extends AppCompatActivity {
     TextView tvname,tvage,tvcontact,tvaddress;
-    Button b_details;
+    Button b_details, b_sDetails;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,9 +23,11 @@ public class Home_Page extends AppCompatActivity {
 
         b_details = findViewById(R.id.btn_details);
 
+        b_sDetails = findViewById(R.id.btn_showStudentDetails);
 
 
-        // rcv data from signuppage
+
+       /* // rcv data from signuppage
 
         Intent iname = getIntent();
         String name=iname.getStringExtra("Name");
@@ -41,7 +43,7 @@ public class Home_Page extends AppCompatActivity {
 
         Intent iaddress = getIntent();
         String address=iaddress.getStringExtra("Address");
-        tvaddress.setText(address);
+        tvaddress.setText(address);*/
 
 
 
@@ -49,6 +51,13 @@ public class Home_Page extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 openAddDetails();
+            }
+        });
+
+        b_sDetails.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openShowStudentDetails();
             }
         });
 
@@ -60,6 +69,12 @@ public class Home_Page extends AppCompatActivity {
     {
         Intent i =new Intent(this,AddDetailsPage.class);
 
+        startActivity(i);
+    }
+
+
+    public void openShowStudentDetails(){
+        Intent i = new Intent(this,ShowStudentDetails.class);
         startActivity(i);
     }
 

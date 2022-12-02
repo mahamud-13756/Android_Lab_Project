@@ -9,5 +9,12 @@ public interface ApiPostData {
 
     @FormUrlEncoded
     @POST("addStudent.php")
-    Call<ModelPostData> AddData(@Field("name") String name,@Field("studentID") String studentID,@Field("batchNo") String batchNo , @Field("email") String email,  @Field("address") String address,  @Field("contact") String contact);
+    Call<ModelPostData> AddData(
+            @Field("name") String name,
+            @Field("studentID") String studentID,
+            @Field("batchNo") String batchNo ,
+            @Field("email") String email,
+            @Field("address") String address,
+            @Field("contact") String contact
+    );
 }
